@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Samar To-Do List</title>
+  <link rel="icon" type="mage/png" href="avatar_white.png" />
+
   <style>
     :root {
       --bg-faint: #f5f0e6;
@@ -131,6 +133,60 @@
       <input type="file" />
     </div>
   </div>
+  <div id="download-section" style="margin-top: 1rem; display: none;">
+  <label>رابط تحميل الملف المرفوع:</label>
+  <a id="file-download-link" href="#" download>تحميل الملف</a>
+</div>
+
+<script>
+  const fileInput = document.querySelector('input[type="file"]');
+  const downloadSection = document.getElementById('download-section');
+  const downloadLink = document.getElementById('file-download-link');
+
+  fileInput.addEventListener('change', () => {
+    const file = fileInput.files[0];
+    if (file) {
+      // إنشاء رابط مؤقت للملف
+      const fileURL = URL.createObjectURL(file);
+      downloadLink.href = fileURL;
+      downloadLink.download = file.name;
+      downloadSection.style.display = 'block';
+    } else {
+      downloadSection.style.display = 'none';
+    }
+  });
+</script>
+
 </body>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tasks = document.querySelectorAll(".task");
+
+    tasks.forEach((task, index) => {
+      const checkbox = task.querySelector('input[type="checkbox"]');
+      const textInput = task.querySelector('input[type="text"]');
+
+      // استرجاع الحالة من localStorage
+      if (checkbox) {
+        const savedCheck = localStorage.getItem(`task-checkbox-${index}`);
+        if (savedCheck !== null) checkbox.checked = savedCheck === 'true';
+
+        // حفظ الحالة عند التغيير
+        checkbox.addEventListener("change", () => {
+          localStorage.setItem(`task-checkbox-${index}`, checkbox.checked);
+        });
+      }
+
+      if (textInput) {
+        const savedText = localStorage.getItem(`task-text-${index}`);
+        if (savedText !== null) textInput.value = savedText;
+
+        textInput.addEventListener("input", () => {
+          localStorage.setItem(`task-text-${index}`, textInput.value);
+        });
+      }
+    });
+  });
+</script>
 
 </html>
