@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samar To-Do List</title>
+  <style>
+    :root {
+      --bg-faint: #f5f0e6;
+      --bg-light: #fffaf5;
+      --bg-accent: #e0d6c3;
+      --accent-main: #c2a97e;
+      --accent-dark: #a68b6d;
+      --text-primary: #4b3e2e;
+      --text-secondary: #6b5a4a;
+      --overlay-light: rgba(255, 248, 240, 0.8);
+      --overlay-dark: rgba(0, 0, 0, 0.7);
+      --scroll-thumb-gradient: linear-gradient(to bottom, #f5f0e6, #c2a97e);
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+     ;
+      color: var(--text-primary);
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background-color: transparent;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent-dark);
+      margin-bottom: 2rem;
+    }
+
+    .task {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--bg-accent);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .task label {
+      flex-grow: 1;
+      margin-right: 0.5rem;
+    }
+
+    input[type="text"] {
+      padding: 0.4rem;
+      border: 1px solid var(--accent-dark);
+      border-radius: 4px;
+      margin-inline: 0.5rem;
+      width: 60px;
+    }
+
+    input[type="checkbox"] {
+      transform: scale(1.5);
+      accent-color: var(--accent-main);
+    }
+
+    .upload-section {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: var(--bg-accent);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input[type="file"] {
+      border: none;
+    }
+    body {
+  background-image: url('bac-phone.png'); /* استبدلها برابط الصورة */
+  background-size: cover;        /* تغطي كامل الشاشة مع المحافظة على النسبة */
+  background-position: center;   /* تثبيت الصورة في الوسط */
+  background-repeat: no-repeat;  /* منع تكرار الصورة */
+  background-attachment: fixed;  /* الصورة ثابتة لما تسكرول (اختياري) */
+  background-color: var(--bg-faint); /* لون احتياطي للخلفية */
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>قائمة المهام - Samar</h1>
+    <div class="task">
+      <label>ملف شعار الشركة</label>
+      <input type="checkbox" />
+    </div>
+    <div class="task">
+      <label>16 صورة خلفيات (ليست بمقاس البوست/ 4 من كل نوع خدمة)</label>
+      <input type="checkbox" />
+    </div>
+    <div class="task">
+      <label>تعديل بيانات الأقسام</label>
+      <input type="checkbox" />
+    </div>
+    <div class="task">
+      <label>مجلدات صور لكل مشروع مع العنوان</label>
+      <input type="checkbox" />
+    </div>
+    <div class="task">
+      <label>مجلدات للمشاريع الجاهزة</label>
+      <input type="checkbox" />
+    </div>
+    <div class="task">
+      <label>عدد المشاريع الإجمالي (تقديري)</label>
+      <input type="text" placeholder="--" />
+    </div>
+    <div class="task">
+      <label>عدد المشاريع الجاهزة (تقديري)</label>
+      <input type="text" placeholder="--" />
+    </div>
+    <div class="upload-section">
+      <label>رفع ملف الشعار:</label>
+      <input type="file" />
+    </div>
+  </div>
+</body>
+
+</html>
