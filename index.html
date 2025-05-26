@@ -127,37 +127,8 @@
     <div class="task">
       <label>عدد المشاريع الجاهزة (تقديري)</label>
       <input type="text" placeholder="--" />
-    </div>
-    <div class="upload-section">
-      <label>رفع ملف الشعار:</label>
-      <input type="file" />
-    </div>
-  </div>
-  <div id="download-section" style="margin-top: 1rem; display: none;">
-  <label>رابط تحميل الملف المرفوع:</label>
-  <a id="file-download-link" href="#" download>تحميل الملف</a>
-</div>
-
-<script>
-  const fileInput = document.querySelector('input[type="file"]');
-  const downloadSection = document.getElementById('download-section');
-  const downloadLink = document.getElementById('file-download-link');
-
-  fileInput.addEventListener('change', () => {
-    const file = fileInput.files[0];
-    if (file) {
-      // إنشاء رابط مؤقت للملف
-      const fileURL = URL.createObjectURL(file);
-      downloadLink.href = fileURL;
-      downloadLink.download = file.name;
-      downloadSection.style.display = 'block';
-    } else {
-      downloadSection.style.display = 'none';
-    }
-  });
-</script>
-
 </body>
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const tasks = document.querySelectorAll(".task");
